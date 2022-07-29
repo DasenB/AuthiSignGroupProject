@@ -1,0 +1,2 @@
+# SSL
+Contains files to establish an https connection. It needs to contain two files: a private key with the file name `localhost-key.pem` and a server certificate with the file name `localhost.pem`. These files are not provided in the repository and must be added manually.

@@ -1,0 +1,35 @@
+services:
+  orcid_authentication_server_dev:
+    container_name: orcid_authentication_server_dev
+    build:
+      context: orcid_authentication
+      dockerfile: dockerfile
+    ports:
+      - "8080:8080"
+    volumes: 
+      - ./orcid_authentication:/authentication-server/server
+    working_dir: /authentication-server/server
+    command: nodemon /authentication-server/server/server.js
+  yubikey_authentication_server_dev:
+    container_name: yubikey_authentication_server_dev
+    build:
+      context: yubikey_authentication_server
+      dockerfile: dockerfile
+    ports:
+      - "8090:8080"
+    volumes: 
+      - ./yubikey_authentication_server:/authentication-server/server
+    working_dir: /authentication-server/server
+    command: sh -c "mkcert localhost && nodemon /authentication-server/server/server.js"
+  frontproxy:
+    build:
+      dockerfile: nginx/dockerfile
+    container_name: frontproxy
+    restart: always
+    environment:
+      DEFAULT_HOST: default.vhost
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro

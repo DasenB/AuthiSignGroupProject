@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "fido2-lib": "^3.2.3",
+    "u2f-api": "^1.2.1"
+  }
+}

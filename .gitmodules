@@ -1,0 +1,6 @@
+[submodule "client/public/vendor/orcid-auth-widget"]
+	path = client/public/vendor/orcid-auth-widget
+	url = https://github.com/ORCID/orcid-auth-widget
+[submodule "server/src/static/authentication-page/vendor/orcid-auth-widget"]
+	path = server/src/static/authentication-page/vendor/orcid-auth-widget
+	url = https://github.com/ORCID/orcid-auth-widget

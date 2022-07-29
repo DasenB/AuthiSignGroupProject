@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "authi-sign",
+  "version": "0.1.0",
+  "description": "sign comments using orcid",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0xYaLcoMbxRDenXlTMrK3NpE2Ty/AfF/wKcTmxcs19cNQw6Rz/QWl5ym6cStOJFQ8wEXNWnoAn75CuppFc6KvTUBI0sXHFzSwJjwhUrWfWlJiW75Fjcm6DJ8oMB+78bNC0FARyITYoDqHjOSnfgDjRIbB4lVRKWFlPar+DLDkA5/BOwl0UrUMLujne0VxKoJMHgY+bF0X2upWEMRCns5BJrp/Ti2p5s3Qe5owj+H0dEBdwugGzCxcW5/spaKAoBOHJ43OZ/6bASAXq5owmgD2+HVqQ/exOeXkS7aVzHYr8ewxWoKvusuonUiYXTz3HrvYVhgE/YikFl6oq7tDjwZvQIDAQAB",
+  "background": {
+    "service_worker": "build/background.js"
+  },
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": ["tabs", "activeTab", "storage"],
+  "sandbox": {
+    "pages": ["sandbox.html"]
+  },
+  "content_security_policy": {
+    "sandbox": "sandbox allow-scripts; script-src 'self'; script-src-elem 'self' https://code.jquery.com https://kjur.github.com https://kjur.github.io"
+  },
+  "content_scripts": [
+  {
+      "js": ["contentScript.js"],
+      "matches": ["*://127.0.0.1/*"],
+      "run_at": "document_end"
+  }]
+}

@@ -1,0 +1,23 @@
+# MacOS Artefacts
+.DS_Store
+
+# Vendor folders
+auth-sandbox/vendor/*
+!auth-sandbox/vendor/README.md
+
+authentication-server/node_modules/
+authentication-server/yubikey_authentication_server/node_modules/
+authentication-server/yubikey_authentication_server/*.pem
+authentication-server/nginx/ssl/*.pem
+
+coverage
+
+client/node_modules/
+client/public/build/
+client/public/vendor/bootstrap/
+client/public/vendor/svelte-material-ui/
+client/.vscode/
+
+authentication-server/yubikey_authentication_server/*.pem
+authentication-server/ssl/*.pem
+

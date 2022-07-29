@@ -1,0 +1,9 @@
+from node:lts-alpine 
+
+workdir /authentication-server
+
+copy package.json /authentication-server/package.json
+copy package-lock.json /authentication-server/package-lock.json
+
+run npm install
+run npm install nodemon -g
